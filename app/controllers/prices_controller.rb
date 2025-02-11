@@ -6,11 +6,11 @@ class PricesController < ApplicationController
     @prices = Price.all
 
     Price.find_by(price: @prices)
-    @news_less = Price.minimum(:price)
+    news_less = Price.minimum(:price)
     @Result_min = Price.where(price: @prices)
 
     Price.find_by(price: @prices)
-    @news_maximum = Price.maximum(:price)
+    news_maximum = Price.maximum(:price)
     @Result_max = Price.where(price: @prices)
   end
 
