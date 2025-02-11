@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Prices" %>
+
+<h1>The new Prices</h1>
+
+<% content_for :title, "The Ideal Menu Prices" %>
+
+<h1>Prices</h1>
+
+<h2> Find <span style="color:brown">the first</span> resturant item:</h2>
+
+<%=@news_less%>
+
+<h2> Find <span style="color:gold">the latest</span> resturant item:</h2>
+<%=@news_maximum%>
+
+
+<div id="prices">
+  <% @prices.each do |price| %>
+    <%= render price %>
+    <p>
+      <%= link_to "Show this price", price %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New price", new_price_path %>
