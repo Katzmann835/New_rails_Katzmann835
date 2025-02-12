@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @resturant %>
+
+<div>
+  <%= link_to "Edit this resturant", edit_resturant_path(@resturant) %> |
+  <%= link_to "Back to resturants", resturants_path %>
+
+  <%= button_to "Destroy this resturant", @resturant, method: :delete %>
+</div>
