@@ -10,12 +10,24 @@
 
 <h2> Find <span style="color:brown">the Cheapest</span> resturant item:</h2>
 
-<p>Price:</p>
-<%=@Result_min%>
+<p>Minimum Price:</p>
+<% if @Result_min.any?%>
+  <% @Result_min.each do |price| %>
+    <%=render price%>
+    <%end%>
+  <%else%>
+    <p>No Minimum Price found</p>
+  <%end%>
 
 <h2> Find <span style="color:gold">the most expensive</span> resturant item:</h2>
-<p>Price:</p>
-<%=@Result_max%>
+<p>Maximum Price:</p>
+<% if @Result_max.any?%>
+  <% @Result_max.each do |price| %>
+    <%=render price%>
+    <%end%>
+  <%else%>
+    <p>No Maximum Price found</p>
+  <%end%>
 
 
 <div id="prices">

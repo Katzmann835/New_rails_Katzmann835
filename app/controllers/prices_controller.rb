@@ -5,13 +5,19 @@ class PricesController < ApplicationController
   def index
     @prices = Price.all
 
-    Price.find_by(price: @prices)
     news_less = Price.minimum(:price)
-    @Result_min = Price.where(price: @prices)
+    if news_less.present?
+      @Result_min = Price.where(price: news_less)
+    else
+      @Result_min = []
+    end
 
-    Price.find_by(price: @prices)
     news_maximum = Price.maximum(:price)
-    @Result_max = Price.where(price: @prices)
+    if news_maximum.present?
+      @Result_max = Price.where(price: news_maximum)
+    else
+      @Result_max = []
+    end
   end
 
   # GET /prices/1 or /prices/1.json
