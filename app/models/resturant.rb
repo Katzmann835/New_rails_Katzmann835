@@ -1,7 +1,7 @@
 class Resturant < ApplicationRecord
   has_many :rest_price
 
-  before_destory 
+  before_destroy
   :ensure_not_referenced_by_any_line_item
 
   private
