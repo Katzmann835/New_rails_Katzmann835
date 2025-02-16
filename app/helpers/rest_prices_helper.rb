@@ -1,0 +1,2 @@
+module RestPricesHelper
+end

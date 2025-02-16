@@ -56,6 +56,20 @@ class ResturantsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # Validates that prices and resturants are merged
+  test "can't delete product in price" do 
+    assert_difference("resturant.count", 0) do
+      delete_resturant_url(resturant(:two))
+    end
+    assert_redirected_to_resturant_url
+  end
+
+  test "should destroy product" do
+    assert_difference("resturant.count", -1) do
+      delete_resturant_url(@resturant)
+    end
+    assert_redirected_to_resturant_url
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_12_015423) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_16_001808) do
   create_table "prices", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -18,6 +18,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_12_015423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "price"
+  end
+
+  create_table "rest_prices", force: :cascade do |t|
+    t.integer "prices_id", null: false
+    t.integer "resturants_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prices_id"], name: "index_rest_prices_on_prices_id"
+    t.index ["resturants_id"], name: "index_rest_prices_on_resturants_id"
   end
 
   create_table "resturants", force: :cascade do |t|
@@ -28,4 +37,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_12_015423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "rest_prices", "prices", column: "prices_id"
+  add_foreign_key "rest_prices", "resturants", column: "resturants_id"
 end

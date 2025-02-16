@@ -1,0 +1,12 @@
+<% content_for :title, "Editing rest price" %>
+
+<h1>Editing rest price</h1>
+
+<%= render "form", rest_price: @rest_price %>
+
+<br>
+
+<div>
+  <%= link_to "Show this rest price", @rest_price %> |
+  <%= link_to "Back to rest prices", rest_prices_path %>
+</div>

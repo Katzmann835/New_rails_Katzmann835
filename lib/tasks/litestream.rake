@@ -42,7 +42,7 @@ namespace :litestream do
     end
   end
 
-  task :run do
+  task :run => :prepare do
     require "shellwords"
 
     exec(*%w[bundle exec litestream replicate -config],
