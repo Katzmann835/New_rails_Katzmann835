@@ -65,6 +65,7 @@ class RestPricesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rest_price_params
-      params.expect(rest_price: [ :prices_id, :resturants_id ])
+      params.expect(rest_price: [ :price_id, :resturant_id ])
+      p params
     end
 end
