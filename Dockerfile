@@ -70,7 +70,7 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R 1000:1000 db log storage tmp
 USER 1000:1000
 
-# Entrypoint prepares the database.
+# Entrypoint sets up the container.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start server via Thruster by default, this can be overwritten at runtime
