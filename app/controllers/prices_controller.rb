@@ -9,14 +9,14 @@ class PricesController < ApplicationController
     if news_less.present?
       @Result_min = Price.where(price: news_less)
     else
-      @Result_min = []
+      @Result_min = [@prices.minimum(:price)]
     end
 
     news_maximum = Price.maximum(:price)
     if news_maximum.present?
       @Result_max = Price.where(price: news_maximum)
     else
-      @Result_max = []
+      @Result_max = [@prices.maximum(:price)]
     end
   end
 
